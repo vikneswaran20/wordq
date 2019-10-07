@@ -92,11 +92,31 @@ public class WordQ {
      */
     public WordQ join(String[] values, final String delimiter) {
         Objects.requireNonNull(values, "The input string must not be null");
+        Objects.requireNonNull(delimiter, "The input delimiter must not be null");
 
         StringJoiner stringJoiner = new StringJoiner(delimiter);
         Arrays.stream(values).forEach(value -> stringJoiner.add(value));
 
         input = (input.length() > 0) ? String.join(delimiter, input, stringJoiner.toString()) : stringJoiner.toString();
+        return this;
+    }
+
+    /**
+     * Insert the given string at the specified index.
+     *
+     * @param value Input value.
+     * @param index index to insert.
+     * @return The WordQ reference.
+     */
+    public WordQ insert(String value, int index) {
+        Objects.requireNonNull(value, "The input string must not be null");
+
+        if (index > input.length() || index < 0 || "".equals(value)) {
+            return this;
+        }
+
+        this.input = input.substring(0, index).concat(value).concat(input.substring(index));
+
         return this;
     }
 
