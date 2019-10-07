@@ -1,5 +1,8 @@
 # WordQ
 
+[![Build Status](https://travis-ci.org/vikneswaran20/wordq.svg?branch=master)](https://travis-ci.org/vikneswaran20/wordq)
+![GitHub](https://img.shields.io/github/license/vikneswaran20/wordq?color=%234cc61e)
+
 **WordQ** is the String manipulation library for Java 8 with builder support.
 
 ```java
