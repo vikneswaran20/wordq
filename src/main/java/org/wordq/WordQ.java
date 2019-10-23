@@ -115,8 +115,39 @@ public class WordQ {
             return this;
         }
 
-        this.input = input.substring(0, index).concat(value).concat(input.substring(index));
+        input = input.substring(0, index).concat(value).concat(input.substring(index));
 
+        return this;
+    }
+
+    /**
+     * Reverse the given string.
+     *
+     * @return The WordQ reference.
+     */
+    public WordQ reverse() {
+        input = new StringBuilder(this.input).reverse().toString();
+        return this;
+    }
+
+    /**
+     * Repeats the string to given number of times.
+     *
+     * @param times The number of times the string needs to be repeated.
+     * @return The WordQ reference.
+     */
+    public WordQ repeat(int times) {
+        if (times < 0) {
+            throw new IllegalArgumentException("The repeating factor should not be negative");
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while (times-- > 0) {
+            stringBuilder.append(input);
+        }
+
+        input = stringBuilder.toString();
         return this;
     }
 

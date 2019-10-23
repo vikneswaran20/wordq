@@ -104,6 +104,36 @@ class WordQTest {
     }
 
     @Test
+    @DisplayName("Reverse String")
+    void testReverse() {
+        assertAll("should reverse the given string",
+                () -> assertEquals("QdroW",
+                        new WordQ("WordQ")
+                                .reverse()
+                                .toString()));
+    }
+
+    @Test
+    @DisplayName("Repeat the String")
+    void testRepeat() {
+        assertAll("should repeat the string for given number of times",
+                () -> assertEquals("WordQWordQWordQ",
+                        new WordQ("WordQ")
+                                .repeat(3)
+                                .toString()),
+
+                () -> assertEquals("",
+                        new WordQ("WordQ")
+                                .repeat(0)
+                                .toString()),
+
+                () -> assertThrows(IllegalArgumentException.class, () -> {
+                    new WordQ().repeat(-2);
+                })
+        );
+    }
+
+    @Test
     @DisplayName("Strip White Spaces")
     void testStripWhiteSpace() {
         assertAll("should strip all the white spaces in the given String",
